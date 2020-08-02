@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="tah-34-UU2">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dPb-4v-qAb" customClass="ProfileViewController" customModule="Xpense" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o1f-2c-6dL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBg-zG-g3M">
+                                <rect key="frame" x="358" y="60" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Uup-7Y-4yU"/>
+                                    <constraint firstAttribute="height" constant="40" id="nAi-qp-IGC"/>
+                                </constraints>
+                                <color key="tintColor" red="0.30980392159999998" green="0.6705882353" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="logout"/>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="dPb-4v-qAb" eventType="touchUpInside" id="X2t-8a-hni"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OBg-zG-g3M" firstAttribute="top" secondItem="Nrv-Fp-k6h" secondAttribute="top" constant="16" id="1tf-d1-UDM"/>
+                            <constraint firstAttribute="trailing" secondItem="OBg-zG-g3M" secondAttribute="trailing" constant="16" id="Eu3-2Z-QNG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nrv-Fp-k6h"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUR-Qk-H8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logout" width="90" height="90"/>
+    </resources>
+</document>
