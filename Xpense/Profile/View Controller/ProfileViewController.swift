@@ -28,7 +28,8 @@ class ProfileViewController: UIViewController {
     @IBAction func logoutTapped(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-            self.navigationController?.popViewController(animated: true)
+            
+            self.navigationController?.popToRootViewController(animated: true)
         } catch let error {
             print(error.localizedDescription)
         }

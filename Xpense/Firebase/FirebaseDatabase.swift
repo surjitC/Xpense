@@ -16,6 +16,7 @@ class FirebaseDatabase {
     static let shared = FirebaseDatabase()
     private let database = Firestore.firestore()
     private let usersCollection = "users"
+    private let ID = "id"
 }
 
 extension FirebaseDatabase: UserDB {
@@ -47,17 +48,49 @@ extension FirebaseDatabase: UserDB {
                 completionHandler(false)
                 return
             }
+            guard let uid = result?.user.uid else {
+                completionHandler(false)
+                return
+            }
+            self?.getUserDetails(userID: uid)
             completionHandler(true)
         }
     }
 
     func addUserInDatabase(user: User) -> Bool {
-        let result = try? database.collection(usersCollection).addDocument(from: user)
-        if result?.documentID == nil {
-            return false
-        } else {
+        do {
+            try database.collection(usersCollection).document(user.id).setData(from: user)// .addDocument(from: user)
+            self.getUserDetails(userID: user.id)
             return true
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            return false
         }
+        
+    }
+    
+    func getUserDetails(userID: String) {
+        database.collection(usersCollection).document(userID).getDocument { (document, error) in
+            let result = Result {
+              try document?.data(as: User.self)
+            }
+            switch result {
+            case .success(let user):
+                if let user = user {
+                    // A `User` value was successfully initialized from the DocumentSnapshot.
+                    print("User: \(user)")
+                    UserManager.shared.userID = user.id
+                } else {
+                    // A nil value was successfully initialized from the DocumentSnapshot,
+                    // or the DocumentSnapshot was nil.
+                    print("User does not exist")
+                }
+            case .failure(let error):
+                // A `User` value could not be initialized from the DocumentSnapshot.
+                print("Error decoding user: \(error)")
+            }
+        }
+        
     }
     
 }

@@ -70,7 +70,7 @@ extension SignupViewController: LoginViewControllerProtocol {
         self.removeSpinner()
         print(success)
         if success {
-            let vc = HomeViewController.instantiateVC()
+            let vc = TabBarViewController.instantiateVC()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
