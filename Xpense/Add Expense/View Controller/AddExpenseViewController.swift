@@ -13,8 +13,10 @@ class AddExpenseViewController: UIViewController {
     @IBOutlet var categoryCollectionView: UICollectionView!
     @IBOutlet var amountTextField: UITextField!
     @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var descriptionTextView: UITextView!
     
     let datePicker = DatePicker()
+    let viewModel = TransactionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,17 @@ class AddExpenseViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.categoryCollectionView.reloadData()
+        self.dateTextField.text = Date().formatDisplayDate()
+        self.viewModel.getTransaction()
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+//        guard let amountText = self.amountTextField.text, let amount = Float(amountText) else { return }
+        self.viewModel.currentTransaction.amount = amountTextField.text
+        self.viewModel.currentTransaction.currency = "USD"
+        self.viewModel.currentTransaction.description = descriptionTextView.text
+        self.viewModel.currentTransaction.id = UUID().uuidString
+        self.viewModel.addtransaction()
     }
 }
 
@@ -72,6 +85,7 @@ extension AddExpenseViewController: UITextFieldDelegate{
     func dateChanged(notification: Notification){
         let userInfo = notification.userInfo
         if let date = userInfo?["date"] as? Date {
+            self.viewModel.currentTransaction.date = date.getCompleteDate()
             self.dateTextField.text = date.formatDisplayDate()
         }
     }

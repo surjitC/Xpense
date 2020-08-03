@@ -14,6 +14,8 @@
 		BD13842924D5ABE3000CBF98 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13842824D5ABE3000CBF98 /* CategoryCollectionViewCell.swift */; };
 		BD13842C24D66CEC000CBF98 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13842B24D66CEC000CBF98 /* DatePicker.swift */; };
 		BD13842E24D66D19000CBF98 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13842D24D66D19000CBF98 /* DateExtention.swift */; };
+		BD13843624D6A193000CBF98 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13843524D6A193000CBF98 /* Transaction.swift */; };
+		BD13843824D6D618000CBF98 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD13843724D6D618000CBF98 /* TransactionViewModel.swift */; };
 		BD20DEFB24CA8577009AF0D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD20DEFA24CA8577009AF0D6 /* LoginViewModel.swift */; };
 		BD2D610C24CAC9F100589F4E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D610B24CAC9F100589F4E /* User.swift */; };
 		BD2D610F24CAE2B000589F4E /* FirebaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2D610E24CAE2B000589F4E /* FirebaseProtocol.swift */; };
@@ -54,6 +56,8 @@
 		BD13842824D5ABE3000CBF98 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD13842B24D66CEC000CBF98 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		BD13842D24D66D19000CBF98 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
+		BD13843524D6A193000CBF98 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		BD13843724D6D618000CBF98 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		BD20DEFA24CA8577009AF0D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BD2D610B24CAC9F100589F4E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BD2D610E24CAE2B000589F4E /* FirebaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProtocol.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		BD13842F24D690D4000CBF98 /* Add Expense */ = {
 			isa = PBXGroup;
 			children = (
+				BD13843424D6A0CA000CBF98 /* Cells */,
 				BD13843324D690FE000CBF98 /* Model */,
 				BD13843224D690F4000CBF98 /* View Model */,
 				BD13843124D690E6000CBF98 /* View Controller */,
@@ -143,6 +148,7 @@
 		BD13843124D690E6000CBF98 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD36C46224CD9E0400C8FEED /* AddExpenseViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -150,6 +156,7 @@
 		BD13843224D690F4000CBF98 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD13843724D6D618000CBF98 /* TransactionViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -157,8 +164,17 @@
 		BD13843324D690FE000CBF98 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD13843524D6A193000CBF98 /* Transaction.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BD13843424D6A0CA000CBF98 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BD13842824D5ABE3000CBF98 /* CategoryCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		BD20DEF524CA8509009AF0D6 /* Login */ = {
@@ -247,7 +263,6 @@
 			children = (
 				BD36C45524CC00AE00C8FEED /* HomeViewController.swift */,
 				BD36C46024CD985300C8FEED /* TabBarViewController.swift */,
-				BD36C46224CD9E0400C8FEED /* AddExpenseViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -303,7 +318,6 @@
 				BD36C48124D54CCA00C8FEED /* ChartsCollectionViewCell.xib */,
 				BD13842124D5705B000CBF98 /* TransactionCollectionViewCell.swift */,
 				BD13842324D58F42000CBF98 /* HomeHeaderView.swift */,
-				BD13842824D5ABE3000CBF98 /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -520,7 +534,9 @@
 				BD36C45F24CD726300C8FEED /* LottieEnum.swift in Sources */,
 				BD36C46124CD985300C8FEED /* TabBarViewController.swift in Sources */,
 				BDFBD5FB24C951E00063394C /* Utilities.swift in Sources */,
+				BD13843824D6D618000CBF98 /* TransactionViewModel.swift in Sources */,
 				BD2D610F24CAE2B000589F4E /* FirebaseProtocol.swift in Sources */,
+				BD13843624D6A193000CBF98 /* Transaction.swift in Sources */,
 				BD36C47E24D537DB00C8FEED /* HorizontalProgressBar.swift in Sources */,
 				BD36C45624CC00AE00C8FEED /* HomeViewController.swift in Sources */,
 				BD36C48224D54CCA00C8FEED /* ChartsCollectionViewCell.swift in Sources */,

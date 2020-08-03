@@ -16,7 +16,9 @@ class FirebaseDatabase {
     static let shared = FirebaseDatabase()
     private let database = Firestore.firestore()
     private let usersCollection = "users"
+    private let transactionCollection = "transactions"
     private let ID = "id"
+    typealias Transactions = [Transaction]
 }
 
 extension FirebaseDatabase: UserDB {
@@ -77,20 +79,56 @@ extension FirebaseDatabase: UserDB {
             switch result {
             case .success(let user):
                 if let user = user {
-                    // A `User` value was successfully initialized from the DocumentSnapshot.
                     print("User: \(user)")
                     UserManager.shared.userID = user.id
                 } else {
-                    // A nil value was successfully initialized from the DocumentSnapshot,
-                    // or the DocumentSnapshot was nil.
                     print("User does not exist")
                 }
             case .failure(let error):
-                // A `User` value could not be initialized from the DocumentSnapshot.
                 print("Error decoding user: \(error)")
             }
         }
-        
+    }
+}
+
+extension FirebaseDatabase: TransactionDB {
+    func add(transaction: Transaction, completionHandler: @escaping ((Bool) -> Void)) {
+        guard let userID = UserManager.shared.userID else {
+            completionHandler(false)
+            return
+        }
+        do {
+            try database.collection(usersCollection).document(userID).collection(transactionCollection).addDocument(from: transaction)
+            completionHandler(true)
+            return
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            completionHandler(false)
+            return
+        }
     }
     
+    func getAllTransaction(completionHandler: @escaping ((Transactions) -> Void)) {
+        guard let userID = UserManager.shared.userID else {
+            completionHandler([])
+            return
+        }
+        database.collection(usersCollection).document(userID).collection(transactionCollection).getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error fetching snapshot results: \(error!)")
+                return
+            }
+            var transactions: Transactions = []
+            snapshot.documents.forEach({ (document) in
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: document.data(), options: .prettyPrinted)
+                    let result = try JSONDecoder().decode(Transaction.self, from: jsonData)
+                    transactions.append(result)
+                } catch let error {
+                    print("Error \(error.localizedDescription) on converting to generics: \(document.data())")
+                }
+            })
+            completionHandler(transactions)
+        }
+    }
 }

@@ -12,3 +12,8 @@ protocol UserDB {
     func registration(usingUser user: User, completionHandler:@escaping ((Bool) -> Void))
     func authenticate(with email: String, and password: String, completionHandler:@escaping ((Bool) -> Void))
 }
+
+protocol TransactionDB {
+    func add(transaction: Transaction, completionHandler:@escaping ((Bool) -> Void))
+    func getAllTransaction( completionHandler:@escaping (([Transaction]) -> Void))
+}

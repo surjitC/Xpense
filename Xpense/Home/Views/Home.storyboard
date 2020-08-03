@@ -436,6 +436,9 @@
                                                 <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="OrJ-eE-dmc" eventType="touchUpInside" id="YiD-bg-mf9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -466,6 +469,7 @@
                         <outlet property="amountTextField" destination="JDg-KV-pQT" id="H3Q-By-H7X"/>
                         <outlet property="categoryCollectionView" destination="eTF-ta-Sms" id="MAh-jg-FYt"/>
                         <outlet property="dateTextField" destination="nKO-2C-Pj7" id="0Tp-Gu-eEf"/>
+                        <outlet property="descriptionTextView" destination="eOQ-Vf-TEG" id="cnu-3s-Skj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVo-xd-4iG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
