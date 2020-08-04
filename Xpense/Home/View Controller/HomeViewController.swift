@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var homeCollectionView: UICollectionView!
     
     let viewModel = HomeViewModel()
+    let apiOperationQueue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,21 @@ class HomeViewController: UIViewController {
         self.homeCollectionView.register(HomeHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeaderView.identifier)
         self.homeCollectionView.scrollsToTop = true
         self.homeCollectionView.reloadData()
+        self.makeRequestForData()
+    }
+    
+    private func makeRequestForData() {
+        self.viewModel.transactions.removeAll()
+        let transactionBlock = BlockOperation {
+            self.viewModel.getAllTransactions { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.homeCollectionView.reloadData()
+                }
+                
+            }
+        }
+        apiOperationQueue.addOperation(transactionBlock)
+        
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {
@@ -66,11 +82,15 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let chartCell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartsCollectionViewCell.idenfier, for: indexPath) as? ChartsCollectionViewCell else {
                 preconditionFailure("Failded to create Chart Cell")
             }
+            
+            chartCell.setUpPieChart(for: self.viewModel.transactions)
             return chartCell
         case .Transaction:
             guard let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionCollectionViewCell.identifier, for: indexPath) as? TransactionCollectionViewCell else {
                 preconditionFailure("Failded to create Chart Cell")
             }
+            let transaction = viewModel.getAllTransactions(index: indexPath.row)
+            transactionCell.configureCell(transaction)
             return transactionCell
         }
         
@@ -92,7 +112,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width = collectionView.bounds.width
-        let height: CGFloat = 40
+        let height: CGFloat = 30
         return CGSize(width: width, height: height)
     }
 }
@@ -113,4 +133,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         }
         
     }
+}
+
+extension HomeViewController: UITextViewDelegate {
+ 
 }

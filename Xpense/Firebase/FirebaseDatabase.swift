@@ -35,8 +35,10 @@ extension FirebaseDatabase: UserDB {
                 let uid = result.user.uid
                 var user = user
                 user.id = uid
-                let success = self?.addUserInDatabase(user: user) ?? false
-                completionHandler(success)
+                self?.addUserInDatabase(user: user, completionHandler: { (success) in
+                    completionHandler(success)
+                })
+                
                 return
             }
             completionHandler(false)
@@ -54,15 +56,19 @@ extension FirebaseDatabase: UserDB {
                 completionHandler(false)
                 return
             }
-            self?.getUserDetails(userID: uid)
-            completionHandler(true)
+            self?.getUserDetails(userID: uid, completionHandler: { (success) in
+                completionHandler(success)
+            })
+            
         }
     }
 
-    func addUserInDatabase(user: User) -> Bool {
+    func addUserInDatabase(user: User, completionHandler:@escaping ((Bool) -> Void)) -> Bool {
         do {
             try database.collection(usersCollection).document(user.id).setData(from: user)// .addDocument(from: user)
-            self.getUserDetails(userID: user.id)
+            self.getUserDetails(userID: user.id) { (success) in
+                completionHandler(true)
+            }
             return true
         } catch let error {
             debugPrint(error.localizedDescription)
@@ -71,7 +77,7 @@ extension FirebaseDatabase: UserDB {
         
     }
     
-    func getUserDetails(userID: String) {
+    func getUserDetails(userID: String, completionHandler: @escaping ((Bool) -> Void)) {
         database.collection(usersCollection).document(userID).getDocument { (document, error) in
             let result = Result {
               try document?.data(as: User.self)
@@ -81,11 +87,14 @@ extension FirebaseDatabase: UserDB {
                 if let user = user {
                     print("User: \(user)")
                     UserManager.shared.userID = user.id
+                    completionHandler(true)
                 } else {
                     print("User does not exist")
+                    completionHandler(false)
                 }
             case .failure(let error):
                 print("Error decoding user: \(error)")
+                completionHandler(false)
             }
         }
     }

@@ -13,5 +13,6 @@ target 'Xpense' do
   pod ‘FirebaseFirestoreSwift’
   pod 'lottie-ios'
   pod 'Charts'
+  pod 'Toast-Swift', '~> 5.0.1'
 
 end

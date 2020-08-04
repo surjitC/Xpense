@@ -17,23 +17,23 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KiW-jQ-MLy">
-                        <rect key="frame" x="12" y="16" width="240" height="142"/>
+                        <rect key="frame" x="12" y="12" width="240" height="150"/>
                         <subviews>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BkW-VC-hDy" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="134" height="134"/>
+                                <rect key="frame" x="8" y="12" width="122" height="122"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BkW-VC-hDy" secondAttribute="height" multiplier="1:1" id="abJ-5b-rdh"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="68o-Ew-upr">
-                                <rect key="frame" x="126" y="8" width="106" height="126"/>
+                                <rect key="frame" x="130" y="8" width="102" height="134"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtd-7v-u6r">
-                                        <rect key="frame" x="0.0" y="0.0" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="102" height="22.5"/>
                                         <subviews>
                                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbj-5c-fZ1">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="CEb-Dw-blH"/>
@@ -46,7 +46,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iwa-Bs-kOT">
-                                                <rect key="frame" x="24" y="3" width="78" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="74" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6p1-Xa-O8Z">
-                                        <rect key="frame" x="0.0" y="21" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="22.5" width="102" height="22"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIq-OF-YsY">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="QIq-OF-YsY" secondAttribute="height" multiplier="1:1" id="GYc-Lx-cab"/>
@@ -78,7 +78,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3N-ll-6MP">
-                                                <rect key="frame" x="24" y="3" width="78" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="74" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -94,10 +94,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuC-OJ-AGE">
-                                        <rect key="frame" x="0.0" y="42" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="102" height="22.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mR5-nL-Vbw">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3.5" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="Fyn-dw-iwL"/>
@@ -110,7 +110,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entertainment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNg-8q-flc">
-                                                <rect key="frame" x="24" y="3" width="82" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="78" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -126,10 +126,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onH-eG-qiA">
-                                        <rect key="frame" x="0.0" y="63" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="67" width="102" height="22.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygx-fH-Uwo">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="eny-th-wkw"/>
@@ -142,7 +142,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjJ-GU-Gsh">
-                                                <rect key="frame" x="24" y="3" width="78" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="74" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -158,10 +158,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DSX-lV-AXi">
-                                        <rect key="frame" x="0.0" y="84" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="89.5" width="102" height="22"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-AJ-86V">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Ulu-AJ-86V" secondAttribute="height" multiplier="1:1" id="I40-vU-ztw"/>
@@ -174,7 +174,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LL4-B8-32x">
-                                                <rect key="frame" x="24" y="3" width="78" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="74" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -190,10 +190,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Jc-1g-Y7Z">
-                                        <rect key="frame" x="0.0" y="105" width="106" height="21"/>
+                                        <rect key="frame" x="0.0" y="111.5" width="102" height="22.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTL-wd-E21">
-                                                <rect key="frame" x="0.0" y="2.5" width="16" height="16"/>
+                                                <rect key="frame" x="0.0" y="3.5" width="16" height="16"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MTL-wd-E21" secondAttribute="height" multiplier="1:1" id="Peo-WF-PlG"/>
@@ -206,7 +206,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miscellaneous" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YeI-3H-g28">
-                                                <rect key="frame" x="24" y="3" width="82" height="15.5"/>
+                                                <rect key="frame" x="24" y="3.5" width="78" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="13"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -226,22 +226,22 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="BkW-VC-hDy" secondAttribute="bottom" constant="8" id="3yi-jq-KpL"/>
+                            <constraint firstAttribute="bottom" secondItem="BkW-VC-hDy" secondAttribute="bottom" constant="16" id="3yi-jq-KpL"/>
                             <constraint firstAttribute="bottom" secondItem="68o-Ew-upr" secondAttribute="bottom" constant="8" id="R4L-D9-kD4"/>
-                            <constraint firstItem="68o-Ew-upr" firstAttribute="leading" secondItem="BkW-VC-hDy" secondAttribute="trailing" constant="-8" id="aAY-xp-b0D"/>
-                            <constraint firstItem="BkW-VC-hDy" firstAttribute="top" secondItem="KiW-jQ-MLy" secondAttribute="top" id="dA4-XH-n5R"/>
+                            <constraint firstItem="68o-Ew-upr" firstAttribute="leading" secondItem="BkW-VC-hDy" secondAttribute="trailing" id="aAY-xp-b0D"/>
+                            <constraint firstItem="BkW-VC-hDy" firstAttribute="top" secondItem="KiW-jQ-MLy" secondAttribute="top" constant="12" id="dA4-XH-n5R"/>
                             <constraint firstItem="68o-Ew-upr" firstAttribute="top" secondItem="KiW-jQ-MLy" secondAttribute="top" constant="8" id="eDW-2J-maa"/>
                             <constraint firstAttribute="trailing" secondItem="68o-Ew-upr" secondAttribute="trailing" constant="8" id="gV6-3T-XgV"/>
-                            <constraint firstItem="BkW-VC-hDy" firstAttribute="leading" secondItem="KiW-jQ-MLy" secondAttribute="leading" id="ywU-zT-GAO"/>
+                            <constraint firstItem="BkW-VC-hDy" firstAttribute="leading" secondItem="KiW-jQ-MLy" secondAttribute="leading" constant="8" id="ywU-zT-GAO"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="KiW-jQ-MLy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="Il0-fb-5dT"/>
-                <constraint firstItem="KiW-jQ-MLy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="Pe5-m1-a65"/>
+                <constraint firstItem="KiW-jQ-MLy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="Pe5-m1-a65"/>
                 <constraint firstAttribute="trailing" secondItem="KiW-jQ-MLy" secondAttribute="trailing" constant="12" id="sfE-Ju-Y7l"/>
-                <constraint firstAttribute="bottom" secondItem="KiW-jQ-MLy" secondAttribute="bottom" constant="16" id="uU6-s9-JVj"/>
+                <constraint firstAttribute="bottom" secondItem="KiW-jQ-MLy" secondAttribute="bottom" constant="12" id="uU6-s9-JVj"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="264" height="174"/>

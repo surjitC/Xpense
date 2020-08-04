@@ -12,15 +12,17 @@ struct Transaction: Codable {
     var id: String?
     var currency: String?
     var amount: String?
-    var description: String?
+    var name: String?
     var date: String?
+    var category: String?
     
     enum CodingKeys: String, CodingKey {
         case id
         case currency
         case amount
-        case description
+        case name
         case date
+        case category
     }
     
     

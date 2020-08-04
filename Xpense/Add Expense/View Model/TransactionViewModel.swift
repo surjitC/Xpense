@@ -12,6 +12,7 @@ class TransactionViewModel {
     
     var database: TransactionDB?
     var currentTransaction = Transaction()
+    var selectedCategory: CategoryType?
     
     init(database: TransactionDB = FirebaseDatabase.shared) {
         self.database = database
@@ -19,18 +20,20 @@ class TransactionViewModel {
 }
 
 extension TransactionViewModel {
-    func getTransaction() {
-        database?.getAllTransaction(completionHandler: { _ in
-            
+    func getTransaction(completion: @escaping ([Transaction]) -> Void) {
+        database?.getAllTransaction(completionHandler: { transactions in
+            completion(transactions)
         })
     }
-    func addtransaction() {
-        self.add(transaction: currentTransaction)
+    func addtransaction(completionHandler:@escaping ((Bool) -> Void)) {
+        self.add(transaction: currentTransaction) { (success) in
+            completionHandler(success)
+        }
     }
     
-    func add(transaction: Transaction) {
+    func add(transaction: Transaction, completionHandler:@escaping ((Bool) -> Void)) {
         database?.add(transaction: transaction, completionHandler: { success in
-            
+            completionHandler(success)
         })
     }
 }

@@ -35,6 +35,10 @@
 		BD36C48224D54CCA00C8FEED /* ChartsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD36C48024D54CCA00C8FEED /* ChartsCollectionViewCell.swift */; };
 		BD36C48324D54CCA00C8FEED /* ChartsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD36C48124D54CCA00C8FEED /* ChartsCollectionViewCell.xib */; };
 		BD36C48724D5514400C8FEED /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD36C48624D5514400C8FEED /* HomeViewModel.swift */; };
+		BD3EDD9324D9CDFD006368F9 /* hourglass-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BD3EDD9024D9CDFC006368F9 /* hourglass-loading.json */; };
+		BD3EDD9424D9CDFD006368F9 /* pie-chart-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BD3EDD9124D9CDFD006368F9 /* pie-chart-loading.json */; };
+		BD3EDD9524D9CDFD006368F9 /* color-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BD3EDD9224D9CDFD006368F9 /* color-loading.json */; };
+		BD3EDD9724D9DAC1006368F9 /* pie-chart-full-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BD3EDD9624D9DAC1006368F9 /* pie-chart-full-loading.json */; };
 		BD63B55A24C9432300583165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD63B55924C9432300583165 /* AppDelegate.swift */; };
 		BD63B55C24C9432300583165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD63B55B24C9432300583165 /* SceneDelegate.swift */; };
 		BD63B55E24C9432300583165 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD63B55D24C9432300583165 /* SigninViewController.swift */; };
@@ -77,6 +81,10 @@
 		BD36C48024D54CCA00C8FEED /* ChartsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD36C48124D54CCA00C8FEED /* ChartsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChartsCollectionViewCell.xib; sourceTree = "<group>"; };
 		BD36C48624D5514400C8FEED /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BD3EDD9024D9CDFC006368F9 /* hourglass-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "hourglass-loading.json"; sourceTree = "<group>"; };
+		BD3EDD9124D9CDFD006368F9 /* pie-chart-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pie-chart-loading.json"; sourceTree = "<group>"; };
+		BD3EDD9224D9CDFD006368F9 /* color-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "color-loading.json"; sourceTree = "<group>"; };
+		BD3EDD9624D9DAC1006368F9 /* pie-chart-full-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "pie-chart-full-loading.json"; sourceTree = "<group>"; };
 		BD63B55624C9432300583165 /* Xpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD63B55924C9432300583165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD63B55B24C9432300583165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +278,10 @@
 		BD36C45724CD6EC500C8FEED /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				BD3EDD9624D9DAC1006368F9 /* pie-chart-full-loading.json */,
+				BD3EDD9224D9CDFD006368F9 /* color-loading.json */,
+				BD3EDD9024D9CDFC006368F9 /* hourglass-loading.json */,
+				BD3EDD9124D9CDFD006368F9 /* pie-chart-loading.json */,
 				BD36C45A24CD6ED300C8FEED /* color-dot-loading.json */,
 				BD36C45824CD6ED300C8FEED /* elephant-loading.json */,
 				BD36C45924CD6ED300C8FEED /* image-loading.json */,
@@ -444,14 +456,18 @@
 			files = (
 				BD36C45C24CD6ED300C8FEED /* image-loading.json in Resources */,
 				BD63B56624C9432400583165 /* LaunchScreen.storyboard in Resources */,
+				BD3EDD9324D9CDFD006368F9 /* hourglass-loading.json in Resources */,
+				BD3EDD9724D9DAC1006368F9 /* pie-chart-full-loading.json in Resources */,
 				BD36C45424CC009600C8FEED /* Home.storyboard in Resources */,
 				BD36C48324D54CCA00C8FEED /* ChartsCollectionViewCell.xib in Resources */,
 				BD63B56E24C943FE00583165 /* GoogleService-Info.plist in Resources */,
+				BD3EDD9424D9CDFD006368F9 /* pie-chart-loading.json in Resources */,
 				BD36C45D24CD6ED300C8FEED /* color-dot-loading.json in Resources */,
 				BD63B56324C9432400583165 /* Assets.xcassets in Resources */,
 				BD36C46A24D169F300C8FEED /* Profile.storyboard in Resources */,
 				BD63B56124C9432300583165 /* Main.storyboard in Resources */,
 				BD36C45B24CD6ED300C8FEED /* elephant-loading.json in Resources */,
+				BD3EDD9524D9CDFD006368F9 /* color-loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
