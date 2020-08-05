@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var homeCollectionView: UICollectionView!
     
     let viewModel = HomeViewModel()
+    let apiOperationQueue = OperationQueue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,26 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         self.homeCollectionView.register(UINib(nibName: ChartsCollectionViewCell.idenfier, bundle: nil), forCellWithReuseIdentifier: ChartsCollectionViewCell.idenfier)
+        self.homeCollectionView.register(UINib(nibName: EmptyStateCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: EmptyStateCollectionViewCell.identifier)
         self.homeCollectionView.register(HomeHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeaderView.identifier)
         self.homeCollectionView.scrollsToTop = true
+        
+        self.makeRequestForData()
+    }
+    
+    private func makeRequestForData() {
+        self.viewModel.transactions.removeAll()
         self.homeCollectionView.reloadData()
+        let transactionBlock = BlockOperation {
+            self.viewModel.getAllTransactions { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.homeCollectionView.reloadData()
+                }
+                
+            }
+        }
+        apiOperationQueue.addOperation(transactionBlock)
+        
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {
@@ -66,11 +84,22 @@ extension HomeViewController: UICollectionViewDataSource {
             guard let chartCell = collectionView.dequeueReusableCell(withReuseIdentifier: ChartsCollectionViewCell.idenfier, for: indexPath) as? ChartsCollectionViewCell else {
                 preconditionFailure("Failded to create Chart Cell")
             }
+            
+            chartCell.setUpPieChart(for: self.viewModel.transactions)
             return chartCell
         case .Transaction:
-            guard let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionCollectionViewCell.identifier, for: indexPath) as? TransactionCollectionViewCell else {
-                preconditionFailure("Failded to create Chart Cell")
+            if viewModel.transactions.isEmpty {
+                guard let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyStateCollectionViewCell.identifier, for: indexPath) as? EmptyStateCollectionViewCell else {
+                    preconditionFailure("Failed to create Empty Cell")
+                }
+                emptyCell.showLoading()
+                return emptyCell
             }
+            guard let transactionCell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionCollectionViewCell.identifier, for: indexPath) as? TransactionCollectionViewCell else {
+                preconditionFailure("Failed to create Chart Cell")
+            }
+            let transaction = viewModel.getAllTransactions(index: indexPath.row)
+            transactionCell.configureCell(transaction)
             return transactionCell
         }
         
@@ -92,7 +121,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let width = collectionView.bounds.width
-        let height: CGFloat = 40
+        let height: CGFloat = 30
         return CGSize(width: width, height: height)
     }
 }
@@ -107,10 +136,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let height: CGFloat = width / 1
             return CGSize(width: width, height: height)
         case .Transaction:
+            if viewModel.transactions.isEmpty {
+                let width = collectionView.bounds.width
+                let height: CGFloat = width * 2 / 3
+                return CGSize(width: width, height: height)
+            }
             let width = collectionView.bounds.width
             let height: CGFloat = 60
             return CGSize(width: width, height: height)
         }
         
     }
+}
+
+extension HomeViewController: UITextViewDelegate {
+ 
 }

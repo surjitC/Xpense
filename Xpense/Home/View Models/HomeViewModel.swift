@@ -7,12 +7,19 @@
 //
 
 import Foundation
-
+typealias DownloadComplete = ((Bool) -> Void)
 class HomeViewModel {
 
     enum Section: Int, CaseIterable {
         case Chart
         case Transaction
+    }
+
+    var transactionViewModel: TransactionViewModel?
+    var transactions: [Transaction] = []
+    
+    init(transactionViewModel: TransactionViewModel = TransactionViewModel()) {
+        self.transactionViewModel = transactionViewModel
     }
     
     func getSection(for section: Int) -> Section? {
@@ -28,7 +35,8 @@ class HomeViewModel {
         case .Chart:
             return 1
         case .Transaction:
-            return 5
+            let count = transactions.isEmpty ? 1 : transactions.count
+            return min(count, 3)
         default:
             return 0
         }
@@ -44,5 +52,16 @@ class HomeViewModel {
         default:
             return ""
         }
+    }
+    
+    func getAllTransactions(completionHandler:@escaping DownloadComplete) {
+        self.transactionViewModel?.getTransaction(completion: { (transactions) in
+            self.transactions = transactions
+            completionHandler(true)
+        })
+    }
+    
+    func getAllTransactions(index: Int) -> Transaction {
+        return transactions[index]
     }
 }

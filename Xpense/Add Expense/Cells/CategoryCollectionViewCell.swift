@@ -24,21 +24,21 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         mainBackgroundView.addShadow(radius: 8, cornerRadius: 8)
-        contentView.isUserInteractionEnabled = true
-        contentView.addGestureRecognizer(tap)
+//        contentView.isUserInteractionEnabled = true
+//        contentView.addGestureRecognizer(tap)
     }
-    func configureCell(for category: ExpenseCategory.CategoryType) {
+    func configureCell(for category: CategoryType) {
         self.categoryNameLabel.text = category.rawValue
         self.categoryImageView.image = UIImage(named: category.rawValue)
     }
     
     @objc
     func mainBackgroundViewTapped() {
-        contentView.addCardPressAnimation { [weak self] success in
-            guard let self = self else { return }
-            UIView.animate(withDuration: 0.2) {
-                self.contentView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-            }
-        }
+//        contentView.addCardPressAnimation { [weak self] success in
+//            guard let self = self else { return }
+//            UIView.animate(withDuration: 0.2) {
+//                self.contentView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+//            }
+//        }
     }
 }

@@ -103,3 +103,5 @@ profile
 #Node Module
 node_modules/
 *.xcbkptlist
+*.xcuserstate
+*.xcbkptlist
