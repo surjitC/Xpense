@@ -47,11 +47,13 @@ class HorizontalProgressBar: UIView {
     override func draw(_ rect: CGRect) {
         backgroundMask.path = UIBezierPath(roundedRect: rect, cornerRadius: rect.height * 0.5).cgPath
         layer.mask = backgroundMask
+        UIView.animate(withDuration: 0.5) {
+            let progressRect = CGRect(origin: .zero, size: CGSize(width: rect.width * self.progress, height: rect.height))
+            
+            self.gradientLayer.frame = progressRect
+            self.gradientLayer.colors = [self.color.cgColor, self.gradientColor.cgColor]
+            self.gradientLayer.cornerRadius = rect.height * 0.5
+        }
         
-        let progressRect = CGRect(origin: .zero, size: CGSize(width: rect.width * progress, height: rect.height))
-        
-        gradientLayer.frame = progressRect
-        gradientLayer.colors = [color.cgColor, gradientColor.cgColor]
-        gradientLayer.cornerRadius = rect.height * 0.5
     }
 }

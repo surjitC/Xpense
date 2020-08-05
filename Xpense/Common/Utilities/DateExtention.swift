@@ -10,9 +10,15 @@ import Foundation
 
 struct DateFormats {
     static let displayDateOnly = "EEEE, MMM d, yyyy"
+    static let completeDateFormat = "dd-MM-yyyy'T'hh:mm:ss"
 }
 
+extension DateFormatter {
+    static let shared = DateFormatter()
+}
 extension Date {
+    static let dateFormatter = DateFormatter()
+    
     static func nextYear() -> [Date] {
         return Date.next(numberOfDays: 365, from: Date())
     }
@@ -32,9 +38,24 @@ extension Date {
     }
     
     func formatDisplayDate() -> String {
-        let dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter.shared
         dateFormatter.dateFormat = DateFormats.displayDateOnly
         return dateFormatter.string(from: self)
+    }
+    
+    func getCompleteDate() -> String {
+        let dateFormatter = DateFormatter.shared
+        dateFormatter.dateFormat = DateFormats.completeDateFormat
+        return dateFormatter.string(from: self)
+    }
+    
+}
+
+extension String {
+    func getCompleteDate() -> Date? {
+        let dateFormatter = DateFormatter.shared
+        dateFormatter.dateFormat = DateFormats.completeDateFormat
+        return dateFormatter.date(from: self)
     }
 }
 

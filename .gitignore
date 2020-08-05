@@ -102,3 +102,6 @@ profile
 .rbenv-vars
 #Node Module
 node_modules/
+*.xcbkptlist
+*.xcuserstate
+*.xcbkptlist

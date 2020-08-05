@@ -12,6 +12,8 @@ class UserManager {
     
     static let shared = UserManager()
     
+    var userID: String?
+    
     enum UserKeys: String {
         case userNameKey
         case userPasswordKey
