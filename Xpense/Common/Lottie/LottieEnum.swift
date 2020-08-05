@@ -16,4 +16,6 @@ enum LottieEnum: String {
     case HourglassLoading = "hourglass-oading"
     case PieChartLoading = "pie-chart-loading"
     case PieChartFullLoading = "pie-chart-full-loading"
+    case CoffeeLoading = "coffee-loading"
+    case FriesLoading = "loader-fries"
 }

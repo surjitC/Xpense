@@ -35,7 +35,8 @@ class HomeViewModel {
         case .Chart:
             return 1
         case .Transaction:
-            return min(self.transactions.count, 3)
+            let count = transactions.isEmpty ? 1 : transactions.count
+            return min(count, 3)
         default:
             return 0
         }
